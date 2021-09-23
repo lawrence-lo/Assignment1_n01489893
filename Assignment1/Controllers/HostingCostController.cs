@@ -23,11 +23,11 @@ namespace Assignment1.Controllers
             /// </summary>
             /// <param name="id">The number of days elapsed since the beginning of the hosting</param>
             /// <returns>3 strings that describe total hosting cost</returns>
-            double price = 5.5;
-            int fortnight = (int)(Math.Floor(id / 14.0) + 1);
-            double totalBeforeTax = Math.Round(fortnight * price, 2);
-            double tax = Math.Round(totalBeforeTax * 0.13, 2);
-            double total = Math.Round(totalBeforeTax + tax, 2);
+            decimal price = 5.5m;
+            int fortnight = (id / 14) + 1;
+            decimal totalBeforeTax = Math.Round(fortnight * price, 2);
+            decimal tax = Math.Round(totalBeforeTax * 0.13m, 2);
+            decimal total = Math.Round(totalBeforeTax + tax, 2);
             return new string[] { 
                 fortnight + " fortnights at $" + price.ToString("0.00") + "/FN = $" + totalBeforeTax.ToString("0.00"),
                 "HST 13% = $" + tax.ToString("0.00") + " CAD", 
